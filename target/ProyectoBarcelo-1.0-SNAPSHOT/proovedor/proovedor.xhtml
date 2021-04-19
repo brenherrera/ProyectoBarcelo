@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./../resources/templates/plantilla.xhtml">
+
+            <ui:define name="content">
+                <h:form>
+                    <b:container fluid="true">
+                        <b:panel title="Lista De Proveedores" look="primary" collapsible="false">
+                            
+                            <b:dataTable value="#{proovedoresController.proovedores}"
+                                         var="proovedor"
+                                         excel="true"
+                                         csv="true"
+                                         pdf="true"
+                                         columnVisibility="true"
+                                         copy="true"
+                                         print="true">
+                                <b:dataTableColumn value="#{proovedor.codProv}" 
+                                                   label="Código"
+                                                   width="10%"
+                                                   />
+                                <b:dataTableColumn value="#{proovedor.nombre}" 
+                                                   label="Nombre"
+                                                   width="15%"
+                                                   />
+                                <b:dataTableColumn value="#{proovedor.apellido1}" 
+                                                   label="Primer Apellido"
+                                                   width="15%"
+                                                   />
+                                <b:dataTableColumn value="#{proovedor.apellido2}" 
+                                                   label="Segundo Apellido"
+                                                   width="15%"
+                                                   />
+                                <b:dataTableColumn value="#{proovedor.telefono}" 
+                                                   label="Telefono"
+                                                   width="11%"
+                                                   />
+                                <b:dataTableColumn value="#{proovedor.correo}" 
+                                                   label="Correo"
+                                                   width="15%"
+                                                   />
+                                <b:dataTableColumn value="#{proovedor.tipoProd}" 
+                                                   label="Tipo Producto"
+                                                   width="15%"
+                                                   />
+                                <b:dataTableColumn style="text-align: center"
+                                                   label="Editar"
+                                                   width="10%">
+                                    <b:commandButton value="Editar"
+                                                     action="#{proovedoresController.editaProovedores(proovedor.id,proovedor.codProv)}"
+                                                     />
+
+                                </b:dataTableColumn>
+                                
+
+                            </b:dataTable>
+                        </b:panel>
+                    </b:container>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

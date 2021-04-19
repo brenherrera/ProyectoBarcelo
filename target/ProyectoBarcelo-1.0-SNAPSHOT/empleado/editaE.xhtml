@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./../resources/templates/plantilla.xhtml">
+
+            <ui:define name="content">
+                <h:form id="editaEmpleadoForm">
+                    <b:container fluid="true">
+                        <b:panel title="Editar Empleado" look="primary" collapsible="false">
+                            <b:row tooltip="El ID no se modifica">
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="ID" for="id"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="ID" id="id"
+                                                 value="#{empleadosController.id}"
+                                                 readonly="true"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="id"/>
+                                </b:column>
+                            </b:row>
+                            <b:row tooltip="Modifique la identificacion unicamente para insertar un empleado nuevo">
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Identificacion" for="identificacion" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Identificacion" id="identificacion" required="true"
+                                                 value="#{empleadosController.idEmpleado}"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="identificacion"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Nombre" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Nombre" id="nombre" required="true"
+                                                 value="#{empleadosController.nombre}"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="nombre"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Primer Apellido" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Primer Apellido" id="apellido1" required="true"
+                                                 value="#{empleadosController.apellido1}"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="apellido1"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Segundo Apellido" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Segundo Apellido" id="apellido2" required="true"
+                                                 value="#{empleadosController.apellido2}"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="apellido2"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Empleo" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Empleo" id="idRol" required="true"
+                                                 value="#{empleadosController.idRol}"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="idRol"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Celular" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Celular" id="telefono" required="true"
+                                                 value="#{empleadosController.telefono}"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="telefono"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Correo" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Correo" id="correo" required="true"
+                                                 value="#{empleadosController.correo}"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="correo"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Direccion" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Direccion" id="direccion" required="true"
+                                                 value="#{empleadosController.direccion}"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="direccion"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Fecha Nacimiento" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:datepicker id="fechaNaci"
+                                                  required="true"
+                                                  required-message="Se requiere la fecha de nacimiento"
+                                                  value="#{empleadosController.fechaNaci}"
+                                                  />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="fechaNaci"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Edad" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Edad" id="edad" required="true"
+                                                 value="#{empleadosController.edad}"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="direccion"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Estado Civil" for="estadoCivil"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:panelGrid columns="2">
+                                        <b:radiobutton value="#{empleadosController.estadoCivil}"
+                                                       itemLabel="Casada" itemValue="C"/>
+                                        <b:radiobutton value="#{empleadosController.estadoCivil}"
+                                                       itemLabel="Soltera" itemValue="S"/>
+                                    </b:panelGrid>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="estadoCivil"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2"/>
+                                <b:column medium-screen="4">
+                                    <b:commandButton value="Modificar"
+                                                     look="success"
+                                                     style="width: 33%;background-color: #ffab73"
+                                                     action="#{empleadosController.updateEmpleado()}"
+                                                     >
+
+                                    </b:commandButton>
+                                    <b:commandButton value="Eliminar"
+                                                     look="danger"
+                                                     action="#{empleadosController.deleteEmpleado()}"
+                                                     style="width: 33%"
+                                                     >
+
+                                    </b:commandButton>
+                                </b:column>                                
+                            </b:row>
+                        </b:panel> 
+                    </b:container>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

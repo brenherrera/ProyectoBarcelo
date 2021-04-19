@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../resources/templates/plantilla.xhtml">
+
+            <ui:define name="content">
+                <h:form id="editaTotalForm">
+                    <b:container fluid="true">
+                        <b:panel title="Nueva Factura" look="primary">
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Cedula" for="cedula"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="101020301"
+                                                 required="true"
+                                                 mask="999999999"
+                                                 id="idHuesped"
+                                                 value="#{totalController.idHuesped}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="idHuesped"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Num.Habitacion" for="numHabit"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Num.Habitacion"
+                                                 required="true"                                                 
+                                                 id="numHabit"
+                                                 value="#{totalController.numHabit}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="numHabit"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Nombre" for="nombre"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Nombre"
+                                                 required="true"                                                 
+                                                 id="nombre"
+                                                 value="#{totalController.nombre}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="nombre"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Primer Apellido" for="apellido1"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Primer Apellido"
+                                                 required="true"                                                 
+                                                 id="apellido1"
+                                                 value="#{totalController.apellido1}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="apellido1"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Segundo Apellido" for="apellido2"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Segundo Apellido"
+                                                 required="true"                                                 
+                                                 id="apellido2"
+                                                 value="#{totalController.apellido2}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="apellido2"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Detalle" for="detalleP"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Detalle"
+                                                 required="true"                                                 
+                                                 id="detalleP"
+                                                 value="#{totalController.detalleP}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="detalleP"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Subtotal" for="subtotal"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Subtotal"
+                                                 required="true"                                                 
+                                                 id="subtotal"
+                                                 value="#{totalController.subtotal}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="subtotal"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Encargos Extras" for="encarExtras"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Encargos Extras"
+                                                 required="true"                                                 
+                                                 id="encarExtras"
+                                                 value="#{totalController.encarExtras}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="encarExtras"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Precio Extras" for="precioExtras"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Precio Extras"
+                                                 required="true"                                                 
+                                                 id="precioExtras"
+                                                 value="#{totalController.precioExtras}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="precioExtras"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Total" for="total"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Total"
+                                                 required="true"                                                 
+                                                 id="total"
+                                                 value="#{totalController.total}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="total"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Fecha de Ingreso" for="fechaIngr"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:datepicker required="true"                                                 
+                                                  id="fechaIngr"
+                                                  value="#{totalController.fechaIngr}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="fechaIngr"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Fecha de Salida" for="fechaSalida"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:datepicker required="true"                                                 
+                                                  id="fechaSalida"
+                                                  value="#{totalController.fechaSalida}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="fechaSalida"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Num.Factura" for="numFactura"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Num.Factura"
+                                                 required="true"                                                 
+                                                 id="numFactura"
+                                                 value="#{totalController.numFactura}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="numFactura"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="3">
+                                <p:captcha label="Check"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:commandButton value="Agregar"
+                                                     action="#{totalController.insertTotal()}"
+                                                     style="width: 100%;background-color: #ffab73;margin-right: 200%"/>
+                                </b:column>
+                            </b:row>
+                        </b:panel>
+                    </b:container>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

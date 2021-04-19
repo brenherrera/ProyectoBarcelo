@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <body>
+
+        <ui:composition template="./../resources/templates/plantilla.xhtml">
+
+            <ui:define name="content">
+                <h:form id="editaHuespedForm">
+                    <b:container fluid="true">
+                        <b:panel title="Editar Huespedes" look="primary" collapsible="false">
+                            <b:row tooltip="El id no se modifica">
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="ID" for="id"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="ID" id="id"
+                                                 value="#{huespedesController.id}"
+                                                 readonly="true"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="id"/>
+                                </b:column>
+                            </b:row>
+                            <b:row tooltip="La cedula no se modifica">
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Cedula" for="idHuesped"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Cedula" id="idHuesped"
+                                                 value="#{huespedesController.idHuesped}"
+                                                 readonly="true"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="idHuesped"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="N. Habitacion" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="N. Habitacion" id="numHabit" required="true"
+                                                 value="#{huespedesController.numHabit}"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="numHabit"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Nombre" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Nombre" id="nombre" required="true"
+                                                 value="#{huespedesController.nombre}"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="nombre"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="P. Apellido" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="P. Apellido" id="apellido1" required="true"
+                                                 value="#{huespedesController.apellido1}"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="apellido1"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="S. Apellido" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="S. Apellido" id="apellido2" required="true"
+                                                 value="#{huespedesController.apellido2}"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="apellido2"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Telefono" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Telefono" id="telefono" required="true"
+                                                 value="#{huespedesController.telefono}"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="telefono"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Correo" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Correo" id="correo" required="true"
+                                                 value="#{huespedesController.correo}"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="correo"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Fecha Ingreso" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:datepicker id="fechaIngr"
+                                                  required="true"
+                                                  required-message="fecha de ingreso"
+                                                  value="#{huespedesController.fechaIngr}"
+                                                  />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="fechaIngr"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Fecha Salida" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:datepicker id="fechaSalida"
+                                                  required="true"
+                                                  required-message="fecha de salida"
+                                                  value="#{huespedesController.fechaSalida}"
+                                                  />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="fechaSalida"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2"/>
+                                <b:column medium-screen="4">
+                                    <b:commandButton value="Modificar"
+                                                     style="width: 33%;background-color: #ffab73"
+                                                     action="#{huespedesController.updateHuesped()}"
+                                                     >
+
+                                    </b:commandButton>
+                                    <b:commandButton value="Eliminar"
+                                                     look="danger"
+                                                     action="#{huespedesController.deleteHuesped()}"
+                                                     style="width: 33%"
+                                                     >
+
+                                    </b:commandButton>
+                                </b:column>
+                            </b:row>
+                        </b:panel>
+                    </b:container>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

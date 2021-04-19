@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <body>
+
+        <ui:composition template="./../resources/templates/plantilla.xhtml">
+
+            <ui:define name="content">
+                <h:form>
+                    <b:container fluid="true">
+                        <b:panel title="Lista De Facturas" look="primary" collapsible="false">
+                            
+                            <b:dataTable value="#{totalController.totales}"
+                                         var="total"
+                                         excel="true"
+                                         csv="true"
+                                         pdf="true"
+                                         columnVisibility="true"
+                                         copy="true"
+                                         print="true">
+                                <b:dataTableColumn value="#{total.idHuesped}" 
+                                                   label="Cedula"
+                                                   width="10%"
+                                                   />
+                                <b:dataTableColumn value="#{total.numHabit}" 
+                                                   label="N.Habitacion"
+                                                   width="15%"
+                                                   />
+                                <b:dataTableColumn value="#{total.nombre}" 
+                                                   label="Nombre"
+                                                   width="15%"
+                                                   />
+                                <b:dataTableColumn value="#{total.apellido1}" 
+                                                   label="P.Apellido"
+                                                   width="15%"
+                                                   />
+                                <b:dataTableColumn value="#{total.apellido2}" 
+                                                   label="S.Apellido"
+                                                   width="15%"
+                                                   />
+                                <b:dataTableColumn value="#{total.detalleP}" 
+                                                   label="Detalle"
+                                                   width="11%"
+                                                   />
+                                <b:dataTableColumn value="#{total.subtotal}" 
+                                                   label="Subtotal"
+                                                   width="11%"
+                                                   />
+                                <b:dataTableColumn value="#{total.encarExtras}" 
+                                                   label="Det.Extras"
+                                                   width="15%"
+                                                   />
+                                <b:dataTableColumn value="#{total.precioExtras}" 
+                                                   label="Pre.Extras"
+                                                   width="15%"
+                                                   />
+                                <b:dataTableColumn value="#{total.total}" 
+                                                   label="Total"
+                                                   width="11%"
+                                                   />
+                                <b:dataTableColumn value="#{total.fechaIngr}" 
+                                                   label="F.Ingreso"
+                                                   width="11%"
+                                                   />
+                                <b:dataTableColumn value="#{total.fechaSalida}" 
+                                                   label="F.Salida"
+                                                   width="11%"
+                                                   />
+                                <b:dataTableColumn value="#{total.numFactura}" 
+                                                   label="N.Factura"
+                                                   width="10%"
+                                                   />
+                                <b:dataTableColumn style="text-align: center"
+                                                   label="Editar"
+                                                   width="10%">
+                                    <b:commandButton value="Editar"
+                                                     action="#{totalController.editaTotal(total.id,total.idHuesped)}"
+                                                     />
+
+                                </b:dataTableColumn>
+                                
+
+                            </b:dataTable>
+                        </b:panel>
+                    </b:container>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

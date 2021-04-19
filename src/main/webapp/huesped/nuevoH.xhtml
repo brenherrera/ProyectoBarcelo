@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Agregar Huespedes</title>
+    </h:head>
+
+    <h:body>
+
+        <ui:composition template="./../resources/templates/plantilla.xhtml">
+
+            <ui:define name="content">
+                <h:form id="editaHuespedForm">
+                    <b:container fluid="true">
+                        <b:panel title="Agregar Huespedes" look="primary" collapsible="false">
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Cedula" for="cedula"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="101020301"
+                                                 required="true"
+                                                 mask="999999999"
+                                                 id="cedula"
+                                                 value="#{huespedesController.idHuesped}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="cedula"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="N. Habitacion" for="numHabit"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="numHabit"
+                                                 required="true"                                                 
+                                                 id="numHabit"
+                                                 value="#{huespedesController.numHabit}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="numHabit"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Nombre" for="nombre"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="nombre"
+                                                 required="true"                                                 
+                                                 id="nombre"
+                                                 value="#{huespedesController.nombre}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="nombre"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="P. Apellido" for="apellido1"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="apellido"
+                                                 required="true"                                                 
+                                                 id="apellido1"
+                                                 value="#{huespedesController.apellido1}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="apellido1"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="S. Apellido" for="apellido2"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="apellido"
+                                                 required="true"                                                 
+                                                 id="apellido2"
+                                                 value="#{huespedesController.apellido2}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="apellido2"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Telefono" for="telefono"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="telefono"
+                                                 required="true"                                                 
+                                                 id="telefono"
+                                                 value="#{huespedesController.telefono}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="telefono"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Correo" for="correo"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Correo"
+                                                 required="true"  
+                                                 mask="email"
+                                                 id="correo"
+                                                 value="#{huespedesController.correo}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="correo"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="F. Ingreso" for="fechaIngr"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:datepicker required="true"                                                 
+                                                  id="fechaIngr"
+                                                  value="#{huespedesController.fechaIngr}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="fechaIngr"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="F. Salida" for="fechaSalida"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:datepicker required="true"                                                 
+                                                  id="fechaSalida"
+                                                  value="#{huespedesController.fechaSalida}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="fechaSalida"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="3">
+                                    <p:captcha label="Check"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:commandButton value="Ingresar"
+                                                     action="#{huespedesController.insertHuesped()}"
+                                                     style="width: 100%;background-color: #ffab73"/>
+                                </b:column>
+                            </b:row>
+                        </b:panel>
+                    </b:container>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+</html>

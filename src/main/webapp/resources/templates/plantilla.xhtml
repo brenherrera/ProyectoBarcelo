@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="css" name="default.css"/>
+        <h:outputStylesheet library="css" name="cssLayout.css"/>
+        <title>Hotel Barcelo</title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top">
+            <ui:insert name="top">
+                <b:navBar class="nav" inverse="false" fluid="true" brand="" 
+                          brand-href="#{request.contextPath}/faces/principal.xhtml">
+                    <b:navbarLinks pull="center">
+                        <b:image library="images" name="logo.png" style="height: 100px; width:160px;"/>
+                    </b:navbarLinks>
+                    <b:navbarLinks>
+                        <b:dropMenu value="Huespedes">
+                            <b:navLink value="Lista" href="#{request.contextPath}/faces/huesped/huesped.xhtml"/>
+                            <b:navLink value="Agregar" href="#{request.contextPath}/faces/huesped/nuevoH.xhtml"/>
+                            <b:navLink value="Graficos"  href="#{request.contextPath}/faces/dashboard/grafico11.xhtml"/>
+                            <b:navLink value="Certificacion"  href="#{request.contextPath}/faces/reportes/certificacionH.xhtml"/>
+                        </b:dropMenu>
+                        <b:dropMenu value="Empleados">
+                            <b:navLink value="Lista" href="#{request.contextPath}/faces/empleado/empleado.xhtml"/>
+                            <b:navLink value="Agregar" href="#{request.contextPath}/faces/empleado/nuevoE.xhtml"/>
+                            <b:navLink value="Graficos"  href="#{request.contextPath}/faces/dashboard/grafico05.xhtml"/>
+                            <b:navLink value="Reporte"  href="#{request.contextPath}/faces/empleado/reporte.xhtml"/>
+                        </b:dropMenu>
+                        <b:dropMenu value="Proveedores">
+                            <b:navLink value="Lista" href="#{request.contextPath}/faces/proovedor/proovedor.xhtml"/>
+                            <b:navLink value="Agregar" href="#{request.contextPath}/faces/proovedor/nuevoP.xhtml"/>
+                        </b:dropMenu>
+                        <b:dropMenu value="Habitaciones">
+                            <b:navLink value="Lista" href="#{request.contextPath}/faces/habitacion/habitacion.xhtml"/>
+                            <b:navLink value="Agregar" href="#{request.contextPath}/faces/habitacion/nuevoH.xhtml"/>
+                            <b:navLink value="Graficos" href="#{request.contextPath}/faces/dashboard/grafico10.xhtml"/>
+                        </b:dropMenu>
+                        <b:dropMenu value="Servicios">
+                            <b:dropMenu value="Spa">
+                            <b:navLink value="Lista" href="#{request.contextPath}/faces/servicios/spa.xhtml"/>
+                            <b:navLink value="Agregar" href="#{request.contextPath}/faces/servicios/nuevoS.xhtml"/>
+                          
+                            </b:dropMenu>
+                            <b:dropMenu value="Gym">
+                            <b:navLink value="Lista" href="#{request.contextPath}/faces/servicios/gym.xhtml"/>
+                            <b:navLink value="Agregar" href="#{request.contextPath}/faces/servicios/nuevoG.xhtml"/>
+                            
+                            </b:dropMenu>
+                            <b:dropMenu value="Restaurante">
+                            <b:navLink value="Lista" href="#{request.contextPath}/faces/servicios/restaurante.xhtml"/>
+                            <b:navLink value="Agregar" href="#{request.contextPath}/faces/servicios/nuevoR.xhtml"/>
+                           
+                            </b:dropMenu>
+                        </b:dropMenu>
+                        <b:dropMenu value="Facturas">
+                            <b:navLink value="Lista" href="#{request.contextPath}/faces/facturas/total.xhtml"/>
+                            <b:navLink value="Agregar" href="#{request.contextPath}/faces/facturas/nuevoT.xhtml"/>
+                        </b:dropMenu>
+                        <b:dropMenu value="Respaldos">
+                            <b:navLink value="Reservaciones" href="#{request.contextPath}/faces/respaldo/Reservaciones.xhtml"/>                   
+                        </b:dropMenu>
+                        <b:dropMenu value="#{usuarioController.idUsuario}" icon-awesome="fa-user">
+                            <b:navLink value="Cerrar" href="#{request.contextPath}/faces/index.xhtml"/>
+                        </b:dropMenu>
+                        <b:dropMenu value="Configuracion" icon-awesome="fa-cog">
+                            <h:form style="display: inline" styleClass="form-inline">
+                                <b:selectOneMenu value="#{temaController.tema}"
+                                                 style="width: 180px; margin-top:8px;" onchange="$('.theme-selector-button').click()">
+                                    <f:selectItem itemValue="default" itemLabel="default"/>
+                                    <f:selectItem itemValue="patternfly" itemLabel="patternfly"/>
+                                    <f:selectItem itemValue="cerulean" itemLabel="cerulean"/>
+                                    <f:selectItem itemValue="cosmo" itemLabel="cosmo"/>
+                                    <f:selectItem itemValue="readable" itemLabel="readable"/>
+                                    <f:selectItem itemValue="cyborg" itemLabel="cyborg"/>
+                                    <f:selectItem itemValue="flatly" itemLabel="flatly"/>
+                                    <f:selectItem itemValue="journal" itemLabel="journal"/>
+                                    <f:selectItem itemValue="lumen" itemLabel="lumen"/>
+                                    <f:selectItem itemValue="paper" itemLabel="paper"/>
+                                    <f:selectItem itemValue="sandstone" itemLabel="sandstone"/>
+                                    <f:selectItem itemValue="simplex" itemLabel="simplex"/>
+                                    <f:selectItem itemValue="slate" itemLabel="slate"/>
+                                    <f:selectItem itemValue="spacelab" itemLabel="spacelab"/>
+                                    <f:selectItem itemValue="superhero" itemLabel="superhero"/>
+                                    <f:selectItem itemValue="united" itemLabel="united"/>
+                                    <f:selectItem itemValue="yeti" itemLabel="yeti"/>
+                                </b:selectOneMenu>
+                                <b:commandButton class="theme-selector-button" value="select" style="display: none" />
+                            </h:form>
+                        </b:dropMenu>
+                </b:navbarLinks>
+                </b:navBar>
+            </ui:insert>
+        </div>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content">Content</ui:insert>
+        </div>
+
+        <div id="bottom">
+            <ui:insert name="bottom">
+                <div class="social">
+		<ul>
+			<li><a href="http://www.facebook.com" target="_blank" class="icon-facebook"></a></li>
+			<li><a href="http://www.twitter.com" target="_blank" class="icon-twitter"></a></li>
+			<li><a href="http://www.googleplus.com" target="_blank" class="icon-googleplus"></a></li>
+			<li><a href="http://www.pinterest.com" target="_blank" class="icon-pinterest"></a></li>
+		</ul>
+	        </div>
+            </ui:insert>
+        </div>
+
+    </h:body>
+
+</html>
