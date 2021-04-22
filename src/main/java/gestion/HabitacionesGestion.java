@@ -13,7 +13,7 @@ public class HabitacionesGestion {
     private static final String SQL_GETHABITACIONES = "SELECT * FROM habitaciones";
     private static final String SQL_GETHABITACION = "SELECT * FROM habitaciones  where numHabit=?";
     private static final String SQL_INSERTARHABITACION = "insert into habitaciones (tamaño,precio) values (?,?)";
-    private static final String SQL_MODIFICARHABITACION = "update habitaciones  set tamaño=?,precio=? where numHabit=?";
+    private static final String SQL_MODIFICARHABITACION = "update habitaciones set tamaño=?,precio=? where numHabit=?";
     private static final String SQL_ELIMINARHABITACION = "Delete FROM habitaciones where numHabit=?";
 
     public static ArrayList<Habitaciones> getHabitaciones() {
@@ -43,7 +43,7 @@ public class HabitacionesGestion {
         try {
             PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_GETHABITACION);
             sentencia.setInt(1, numHabit);
-            sentencia.setString(2, tamaño);
+            //sentencia.setString(2, tamaño);
             ResultSet rs = sentencia.executeQuery();
             while (rs != null && rs.next()) {
                 habitaciones = new Habitaciones(
@@ -80,7 +80,8 @@ public class HabitacionesGestion {
 
             PreparedStatement sentencia = Conexion.getConexion().prepareCall(SQL_MODIFICARHABITACION);
             sentencia.setString(1, habitaciones.getTamaño());
-            sentencia.setString(3, habitaciones.getPrecio());
+            sentencia.setString(2, habitaciones.getPrecio());
+            sentencia.setInt(3, habitaciones.getNumHabit());
 
             return sentencia.executeUpdate() > 0;
 

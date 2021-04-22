@@ -20,8 +20,11 @@ public class HabitacionesController extends Habitaciones implements Serializable
         return HabitacionesGestion.getHabitaciones();
     }
 
-        public String editaHabitaciones(int numHabit, String tamaño) {
+    public String editaHabitaciones(int numHabit, String tamaño) {
+            
         Habitaciones h = HabitacionesGestion.getHabitacion(numHabit, tamaño);
+//        this.setNumHabit(h.getNumHabit());
+//        return "editaHab.xhtml";
         if (h != null) {
             this.setNumHabit(h.getNumHabit());
             this.setTamaño(h.getTamaño());

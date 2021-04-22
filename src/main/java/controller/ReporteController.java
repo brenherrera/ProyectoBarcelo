@@ -60,7 +60,7 @@ public class ReporteController implements Serializable {
         }
     }
     
-        public void certifica(Huesped huesped) {
+    public void certifica(Huesped huesped) {
         Map<String, Object> parametrosReporte = new HashMap<>();
         parametrosReporte.put("idHuesped", huesped.getIdHuesped());
         parametrosReporte.put("nombre", huesped.getNombreCompleto());

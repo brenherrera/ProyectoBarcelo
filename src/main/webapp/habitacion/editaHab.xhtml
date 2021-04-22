@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
 
@@ -33,12 +34,12 @@
                                 </b:column>
                                 <b:column medium-screen="4">
                                     <b:panelGrid columns="2">
-                                        <b:radiobutton value="#{habitacionesController.tamaño}"
-                                                       itemLabel="Queen" itemValue="Q"/>
-                                        <b:radiobutton value="#{habitacionesController.tamaño}"
-                                                       itemLabel="King" itemValue="K"/>
-                                        <b:radiobutton value="#{habitacionesController.tamaño}"
-                                                       itemLabel="Twin" itemValue="T"/>
+                                        <b:radiobutton value="#{habitacionesController.tamaño}">
+                                            <f:selectItem itemValue="Queen" itemLabel="Queen" />
+                                            <f:selectItem itemValue="King" itemLabel="King" />
+                                            <f:selectItem itemValue="Twin" itemLabel="Twin" />
+                                        </b:radiobutton>
+                                       
                                     </b:panelGrid>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">

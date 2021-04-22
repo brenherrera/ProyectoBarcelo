@@ -5,11 +5,15 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import model.Empleados;
 import model.YearGender2;
 import org.primefaces.event.ItemSelectEvent;
 import org.primefaces.model.chart.Axis;
@@ -109,34 +113,80 @@ public class ChartLinelView1 implements Serializable {
 
     private void createLineModels() {
         lineModel1 = initLinearModel();
-        lineModel1.setTitle("Informacion de mpleados");
+        lineModel1.setTitle("Cantidad de Empleados por estado civil y edad");
         lineModel1.setLegendPosition("e");
         Axis yAxis = lineModel1.getAxis(AxisType.Y);
+        Axis xAxis = lineModel1.getAxis(AxisType.X);
         yAxis.setMin(0);
-        yAxis.setLabel("Total");
+        yAxis.setMax(10);
+        xAxis.setMin(22);
+        xAxis.setMax(32);
+        yAxis.setLabel("Cantidad");
+        xAxis.setLabel("Edad");
         //yAxis.setMax(10);
     }
 
     private LineChartModel initLinearModel() {
         LineChartModel model = new LineChartModel();
+        
+        ArrayList<Empleados> lista = EmpleadosGestion.getEmpleados();
+        
+        ArrayList<Empleados> casados = new ArrayList<Empleados>();
+        ArrayList<Empleados> solteros = new ArrayList<Empleados>();
+        for(Empleados emp : lista){
+            if(emp.getEstadoCivil().equals("soltera")){
+                solteros.add(emp);
+            }
+            else{
+                casados.add(emp);
+            }
+        }
+        
+        Hashtable<String,String> solterosList = new Hashtable<String,String>();
+        Hashtable<String,String> casadosList = new Hashtable<String,String>();
+        
+        
+        for(Empleados emp: solteros){
+            if(!solterosList.containsKey(String.valueOf(emp.getEdad()))){
+                solterosList.put(String.valueOf(emp.getEdad()), "1");
+            }
+            else{
+                int value = Integer.parseInt(solterosList.get(String.valueOf(emp.getEdad())));
+                value++;
+                solterosList.put(String.valueOf(emp.getEdad()), String.valueOf(value));
+            }
+        }
+        
+        for(Empleados emp: casados){
+            if(!casadosList.containsKey(String.valueOf(emp.getEdad()))){
+                casadosList.put(String.valueOf(emp.getEdad()), "1");
+            }
+            else{
+                int value = Integer.parseInt(casadosList.get(String.valueOf(emp.getEdad())));
+                value++;
+                casadosList.put(String.valueOf(emp.getEdad()), String.valueOf(value));
+            }
+        }
+        TreeMap<String, String> smap = new TreeMap<String, String>( solterosList );
+        TreeMap<String, String> cmap = new TreeMap<String, String>( casadosList );
+        
+        Set<String> sKeys = smap.keySet();
+        Set<String> cKeys = cmap.keySet();
 
         LineChartSeries series1 = new LineChartSeries();
-        series1.setLabel("Series 1");
+        series1.setLabel("Soltero(a)");
 
-        series1.set(1, 2);
-        series1.set(2, 1);
-        series1.set(3, 3);
-        series1.set(4, 6);
-        series1.set(5, 8);
+        for(String key: sKeys){
+            series1.set(key, Integer.parseInt(solterosList.get(key)));
+        }
 
         LineChartSeries series2 = new LineChartSeries();
-        series2.setLabel("Series 2");
+        series2.setLabel("Casado(a)");
+        
+        for(String key: cKeys){
+            series2.set(key, Integer.parseInt(casadosList.get(key)));
+        }
 
-        series2.set(1, 6);
-        series2.set(2, 3);
-        series2.set(3, 2);
-        series2.set(4, 7);
-        series2.set(5, 9);
 
         model.addSeries(series1);
         model.addSeries(series2);
